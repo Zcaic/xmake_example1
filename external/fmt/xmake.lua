@@ -1,0 +1,6 @@
+target("fmt")
+    set_kind("headeronly")
+    -- add_headerfiles(path.join(os.scriptdir(),"include/(fmt/*.h)"))
+    -- add_headerfiles(path.join(os.scriptdir(),"include/fmt/*.h"))
+    add_includedirs(path.join(os.scriptdir(),"./package/include/"),{public=true})
+target_end()
