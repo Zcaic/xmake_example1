@@ -37,12 +37,12 @@
 
 
 package("fmt")
-    set_installdir(path.join(os.projectdir(),"./out/external/fmt"))
+    set_installdir(path.join(os.projectdir(),"out/external/fmt"))
     on_install(function(package)
         package_dir=path.join(os.scriptdir(),"./package")
         oldir=os.cd(package_dir)
         os.tryrm("build")
-        os.vrunv("cmake",{"-B","build","-S",".","-G=Ninja","-DBUILD_SHARED_LIBS=TRUE"})
+        os.vrunv("cmake",{"-B","build","-S",".","-G=Ninja","-DBUILD_SHARED_LIBS=FALSE"})
         os.vrunv("cmake",{"--build","build"})
         os.vrunv("cmake",{"--install","build","--prefix",package:installdir()})
         os.cd(oldir)
